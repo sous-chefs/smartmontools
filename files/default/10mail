@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+# Send mail if /usr/bin/mail exists or exit silently
+[ -x /usr/bin/mail ] || exit 0
+
+input=$1
+shift
+
+/usr/bin/mail "$@" < $input
+
