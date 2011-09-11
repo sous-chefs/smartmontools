@@ -48,6 +48,15 @@ node['smartmontools']['run_d'].each do |rund|
 
 end
 
+# Fix Ubuntu bug #491324: init script status function doesn't work
+cookbook_file "/etc/init.d/smartmontools" do
+  source "init-smartmontools"
+  owner "root"
+  group "root"
+  mode "0755"
+  only_if do (node[:platform] == 'ubuntu') && (node[:platform_version] == '10.04') end
+end
+
 service "smartmontools" do
   supports :status => true, :reload => true, :restart => true
   action [:enable,:start]
