@@ -7,3 +7,4 @@ version          "1.0.0"
 
 supports "debian", ">= 6.0"
 supports "ubuntu", ">= 10.04"
+supports "centos", ">= 5.7"

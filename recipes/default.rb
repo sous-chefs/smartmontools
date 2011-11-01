@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+service_name = value_for_platform([ "centos", "redhat", "fedora" ] => {"default" => "smartd"}, "default" => "smartmontools")
+
 package "smartmontools" do
   action :upgrade
 end
@@ -26,7 +28,7 @@ template "/etc/default/smartmontools" do
   owner "root"
   group "root"
   mode 0644
-  notifies :reload, "service[smartmontools]"
+  notifies :reload, "service[#{service_name}]"
 end
 
 template "/etc/smartd.conf" do
@@ -34,7 +36,7 @@ template "/etc/smartd.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :reload, "service[smartmontools]"
+  notifies :reload, "service[#{service_name}]"
 end
 
 node['smartmontools']['run_d'].each do |rund|
@@ -57,7 +59,7 @@ cookbook_file "/etc/init.d/smartmontools" do
   only_if do (node[:platform] == 'ubuntu') && (node[:platform_version] == '10.04') end
 end
 
-service "smartmontools" do
+service "#{service_name}" do
   supports :status => true, :reload => true, :restart => true
   action [:enable,:start]
 end
