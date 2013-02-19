@@ -15,8 +15,8 @@
 # looking in /proc/ide and in /proc/scsi.
 
 <% if node['smartmontools']['devices'].length > 0 -%>
-<%   node['smartmontools']['devices'].each do |device| -%>
-<%=    "/dev/#{device} #{node['smartmontools']['device_opts']}" %>
+<%   node['smartmontools']['devices'].each do |device, options| -%>
+<%=    "/dev/#{device} #{options || node['smartmontools']['device_opts']}" %>
 <%   end -%>
 <% else -%>
 # The word DEVICESCAN will cause any remaining lines in this
