@@ -17,28 +17,26 @@
 # limitations under the License.
 #
 
-service_name = value_for_platform(
-  [ "centos", "redhat", "fedora" ] => {
-    "default" => "smartd"
-  },
-  "default" => "smartmontools"
+service_name = value_for_platform_family(
+  'rhel' => { 'default' => 'smartd' },
+  'default' => 'smartmontools'
 )
 
-package "smartmontools"
+package 'smartmontools'
 
-template "/etc/default/smartmontools" do
-  source "smartmontools.default.erb"
-  owner "root"
-  group "root"
-  mode 0644
+template '/etc/default/smartmontools' do
+  source 'smartmontools.default.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
   notifies :reload, "service[#{service_name}]"
 end
 
-template "/etc/smartd.conf" do
-  source "smartd.conf.erb"
-  owner "root"
-  group "root"
-  mode 0644
+template '/etc/smartd.conf' do
+  source 'smartd.conf.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
   notifies :reload, "service[#{service_name}]"
 end
 
@@ -46,23 +44,23 @@ node['smartmontools']['run_d'].each do |rund|
 
   cookbook_file "/etc/smartmontools/run.d/#{rund}" do
     source rund
-    owner "root"
-    group "root"
-    mode 0755
+    owner 'root'
+    group 'root'
+    mode '0755'
   end
 
 end
 
 # Fix Ubuntu bug #491324: init script status function doesn't work
-cookbook_file "/etc/init.d/smartmontools" do
-  source "init-smartmontools"
-  owner "root"
-  group "root"
-  mode "0755"
+cookbook_file '/etc/init.d/smartmontools' do
+  source 'init-smartmontools'
+  owner 'root'
+  group 'root'
+  mode '0755'
   only_if { (platform?('ubuntu')) && (node['platform_version'].to_f == 10.04) }
 end
 
 service service_name do
   supports :status => true, :reload => true, :restart => true
-  action [:enable,:start]
+  action [:enable, :start]
 end
