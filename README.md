@@ -9,8 +9,9 @@ Requirements
 ============
 
 ## Platform:
-
-Tested on Ubuntu 10.04. Should work on Debian 6.0+ or Ubuntu 10.04+.
+* Ubuntu 10.04 / 12.04
+* RHEL family (Redhat Enterprise, CentOS, etc)
+* Debian 6.0+
 
 Attributes
 ==========
