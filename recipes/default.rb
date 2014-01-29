@@ -17,6 +17,9 @@
 # limitations under the License.
 #
 
+# exit if running on virtualized or cloud nodes.
+return if node['virtualization']['role'] == 'guest' || node['cloud']
+
 service_name = value_for_platform_family(
   'rhel' => { 'default' => 'smartd' },
   'default' => 'smartmontools'
