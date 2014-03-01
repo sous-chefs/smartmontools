@@ -17,19 +17,41 @@
 # limitations under the License.
 #
 
+# exit if running on virtualized or cloud nodes.
+return if node['virtualization']['role'] == 'guest' || node['cloud']
+
+# set appropriate service name based on platform_family
 service_name = value_for_platform_family(
-  'rhel' => { 'default' => 'smartd' },
+  'rhel' => 'smartd',
   'default' => 'smartmontools'
+)
+
+# set default directory based on platform
+default_dir = value_for_platform_family(
+  'rhel' => 'sysconfig',
+  'default' => 'default'
 )
 
 package 'smartmontools'
 
-template '/etc/default/smartmontools' do
+template "/etc/#{default_dir}/smartmontools" do
   source 'smartmontools.default.erb'
   owner 'root'
   group 'root'
   mode '0644'
   notifies :reload, "service[#{service_name}]"
+end
+
+# manage debian / ubuntu specific files
+if platform_family?('debian')
+  node['smartmontools']['run_d'].each do |rund|
+    cookbook_file "/etc/smartmontools/run.d/#{rund}" do
+      source rund
+      owner 'root'
+      group 'root'
+      mode '0755'
+    end
+  end
 end
 
 template '/etc/smartd.conf' do
@@ -38,17 +60,6 @@ template '/etc/smartd.conf' do
   group 'root'
   mode '0644'
   notifies :reload, "service[#{service_name}]"
-end
-
-node['smartmontools']['run_d'].each do |rund|
-
-  cookbook_file "/etc/smartmontools/run.d/#{rund}" do
-    source rund
-    owner 'root'
-    group 'root'
-    mode '0755'
-  end
-
 end
 
 # Fix Ubuntu bug #491324: init script status function doesn't work
