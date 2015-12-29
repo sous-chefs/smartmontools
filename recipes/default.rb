@@ -65,6 +65,6 @@ template '/etc/smartd.conf' do
 end
 
 service service_name do
-  supports :status => true, :reload => true, :restart => true
+  supports status: true, reload: true, restart: true
   action [:enable, :start]
 end
