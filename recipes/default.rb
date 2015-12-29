@@ -2,7 +2,7 @@
 # Cookbook Name:: smartmontools
 # Recipe:: default
 #
-# Copyright 2011, Joshua Timberman
+# Copyright 2011-2015, Joshua Timberman
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -62,15 +62,6 @@ template '/etc/smartd.conf' do
   group 'root'
   mode '0644'
   notifies :reload, "service[#{service_name}]"
-end
-
-# Fix Ubuntu bug #491324: init script status function doesn't work
-cookbook_file '/etc/init.d/smartmontools' do
-  source 'init-smartmontools'
-  owner 'root'
-  group 'root'
-  mode '0755'
-  only_if { (platform?('ubuntu')) && (node['platform_version'].to_f == 10.04) }
 end
 
 service service_name do
