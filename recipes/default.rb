@@ -18,7 +18,9 @@
 #
 
 # exit if running on virtualized or cloud nodes.
-return if node['virtualization']['role'] == 'guest' || node['cloud']
+return if (
+  node['virtualization'] && node['virtualization']['role'] == 'guest'
+) || node['cloud']
 
 # set appropriate service name based on platform_family
 service_name = value_for_platform_family(
