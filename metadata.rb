@@ -6,7 +6,7 @@ description      'Installs and configures smartmontools'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.0.2'
 
-supports 'debian', '>= 6.0'
+supports 'debian', '>= 7.0'
 supports 'ubuntu', '>= 12.04'
 supports 'centos', '>= 5.7'
 supports 'redhat', '>= 5.7'
