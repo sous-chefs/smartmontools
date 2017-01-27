@@ -1,5 +1,5 @@
 # Smartmontools Cookbook
-[![Build Status](https://travis-ci.org/jtimberman/smartmontools-cookbook.svg?branch=master)](https://travis-ci.org/jtimberman/smartmontools-cookbook) [![Cookbook Version](https://img.shields.io/cookbook/v/smartmontools.svg)](https://supermarket.chef.io/cookbooks/smartmontools)
+[![Build Status](https://travis-ci.org/sous-chefs/smartmontools.svg?branch=master)](https://travis-ci.org/sous-chefs/smartmontools) [![Cookbook Version](https://img.shields.io/cookbook/v/smartmontools.svg)](https://supermarket.chef.io/cookbooks/smartmontools)
 
 This cookbook will install the smartmontools package and enable the service. It will also configure default email reports.
 
