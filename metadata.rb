@@ -1,12 +1,12 @@
 name             'smartmontools'
-maintainer       'Joshua Timberman'
-maintainer_email 'opensource@housepub.org'
+maintainer       'Sous Chefs'
+maintainer_email 'help@sous-chefs.org'
 license          'Apache 2.0'
 description      'Installs and configures smartmontools'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.0.2'
 
-supports 'debian', '>= 6.0'
+supports 'debian', '>= 7.0'
 supports 'ubuntu', '>= 12.04'
 supports 'centos', '>= 5.7'
 supports 'redhat', '>= 5.7'
