@@ -24,6 +24,8 @@ env:
   - INSTANCE=default-ubuntu-1604
   - INSTANCE=default-centos-6
   - INSTANCE=default-centos-7
+  - INSTANCE=default-debian-7
+  - INSTANCE=default-debian-8
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
