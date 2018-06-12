@@ -76,5 +76,6 @@ platforms:
     image: dokken/opensuse-leap
     pid_one_command: /bin/systemd
 
+suites:
   - name: default
     run_list: smartmontools::default
