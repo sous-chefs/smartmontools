@@ -1,21 +1,27 @@
 # Smartmontools Cookbook
+
 [![Build Status](https://travis-ci.org/sous-chefs/smartmontools.svg?branch=master)](https://travis-ci.org/sous-chefs/smartmontools) [![Cookbook Version](https://img.shields.io/cookbook/v/smartmontools.svg)](https://supermarket.chef.io/cookbooks/smartmontools)
 
 This cookbook will install the smartmontools package and enable the service. It will also configure default email reports.
 
 ## Requirements
+
 ### Platforms
-- Ubuntu 12.04+
+
+- Ubuntu
 - RHEL family (Redhat Enterprise, CentOS, etc)
-- Debian 6.0+
+- Debian
 
 ### Chef
-- Chef 11+
+
+- Chef 12+
 
 ### Cookbooks
+
 - none
 
 ## Attributes
+
 - `node['smartmontools']['smartd_opts']` - sets the value for the `smartd_opts` in /etc/default/smartmontools. Default is "", which leaves the option commented.
 - `node['smartmontools']['start_smartd']` - whether to start smartd service in /etc/default/smartmontools. Default is "yes".
 - `node['smartmontools']['devices']` - Array of devices to monitor with the options used in smartd.conf. May also be a hash to provide different options for each device. Default is []. See **Usage**.
@@ -23,19 +29,25 @@ This cookbook will install the smartmontools package and enable the service. It 
 - `node['smartmontools']['run_d']` - Array of scripts to drop off in `/etc/smartmontools/run.d`. Default is ["10mail"].
 
 ## Templates
+
 ### /etc/smartd.conf
+
 **Note**: The default /etc/smartd.conf configuration file from the package itself does not recommend using DEVICESCAN, despite it being enabled by default. The template will only use DEVICESCAN if `node['smartmontools']['devices']` is not set.
 
 The template for this file will iterate over the `node['smartmontools']['devices']` attribute and write the configuration out. If no specific options are set for a device, it will get the options from `node['smartmontools']['device_opts']`. See **Usage** below.
 
 ### /etc/default/smartmontools
+
 Starts smartd by default using `node['smartmontools']['start_smartd']`. The `enable_smart` option is not recommended by smartmontools per the comment and is not managed via the template. Modify your local copy of the template if you wish to change this.
 
 ## Cookbook Files
+
 ### /etc/smartmontools/run.d/*
+
 Each filename in the array `node['smartmontools']['run_d']` will be dropped off via a cookbook file. By default the only one is 10mail, which exists, and came from the package. These files should be in `files/default`.
 
 ## Usage
+
 By default, the recipe is not set up to monitor any particular devices in smartd.conf, and will use DEVICESCAN. Set the attribute `node['smartmontools']['devices']` to monitor a specific list of disk devices. If you don't require device specific options, this should be an array. A default set of options will be used for all disks from the `node['smartmontools']['device_opts']` attribute.
 
 For example:
@@ -89,6 +101,7 @@ default_attributes(
 ```
 
 ## License & Authors
+
 Copyright 2011-2015, Joshua Timberman ([cookbooks@housepub.org](mailto:cookbooks@housepub.org))
 
 ```text
