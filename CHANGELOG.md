@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the smartmontools cookbook.
 
+## Unreleased
+
+- Depreciated support for centos 6
+- Minimum chef version bumped to 13
+- Upgraded to orb 2.0
+
 ## 1.1.0 (2017-02-04)
 
 - Move ownership of the cookbook to the Sous Chefs organization

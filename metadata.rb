@@ -10,6 +10,6 @@ version          '1.1.0'
   supports os
 end
 
-chef_version '>= 12' if respond_to?(:chef_version)
+chef_version '>= 13' if respond_to?(:chef_version)
 source_url 'https://github.com/sous-chefs/smartmontools'
 issues_url 'https://github.com/sous-chefs/smartmontools/issues'
