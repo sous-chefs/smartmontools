@@ -7,6 +7,8 @@ This file is used to list changes made in each version of the smartmontools cook
 - Depreciated support for centos 6
 - Minimum chef version bumped to 13
 - Upgraded to orb 2.0
+- Remove `if responds_to?` check around metadata in metadata.rb
+- Remove unnecessary long_description metadata from metadata.rb
 
 ## 1.1.0 (2017-02-04)
 
