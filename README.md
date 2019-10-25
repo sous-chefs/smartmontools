@@ -22,7 +22,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Chef
 
-- Chef 12+
+- Chef 13+
 
 ### Cookbooks
 
