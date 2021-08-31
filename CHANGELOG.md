@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the smartmontools cookbook.
 
+## Unreleased
+
+- Standardise files with files in sous-chefs/repo-management
+
 ## 2.0.0 (2020-05-05)
 
 - Depreciated support for centos 6
