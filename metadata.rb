@@ -3,7 +3,7 @@ maintainer       'Sous Chefs'
 maintainer_email 'help@sous-chefs.org'
 license          'Apache-2.0'
 description      'Installs and configures smartmontools'
-version          '2.0.1'
+version          '2.0.2'
 
 %w(ubuntu debian redhat centos fedora scientific oracle).each do |os|
   supports os
