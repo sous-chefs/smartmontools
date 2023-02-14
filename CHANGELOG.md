@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the smartmontools cook
 
 ## Unreleased
 
+## 2.0.4 - *2023-02-14*
+
 ## 2.0.3 - *2022-02-08*
 
 - Remove delivery folder
