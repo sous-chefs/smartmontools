@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the smartmontools cookbook.
 
+## Unreleased
+
 ## 2.0.6 - *2024-05-06*
 
 ## 2.0.5 - *2023-11-01*
