@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the smartmontools cookbook.
 
+## [2.0.9](https://github.com/sous-chefs/smartmontools/compare/2.0.8...v2.0.9) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#80](https://github.com/sous-chefs/smartmontools/issues/80)) ([d2dbb7f](https://github.com/sous-chefs/smartmontools/commit/d2dbb7f4126c43c32dfcb3b30f13a146e384666d))
+
 ## 2.0.3 - *2022-02-08*
 
 * Remove delivery folder
