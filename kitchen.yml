@@ -3,22 +3,44 @@ driver:
   name: vagrant
 
 provisioner:
-  name: chef_zero
+  name: chef_infra
+  product_name: chef
+  product_version: latest
+  channel: stable
+  chef_license: accept
+  enforce_idempotency: true
+  multiple_converge: 2
   deprecations_as_errors: true
 
+verifier:
+  name: inspec
+  sudo: true
+
 platforms:
-  - name: centos-6
-  - name: centos-7
-  - name: debian-8
-    run_list: apt::default
-  - name: debian-9
-    run_list: apt::default
-  - name: opensuse-leap-42
-  - name: ubuntu-16.04
-    run_list: apt::default
-  - name: ubuntu-18.04
-    run_list: apt::default
+  - name: almalinux-8
+  - name: almalinux-9
+  - name: amazonlinux-2023
+  - name: centos-stream-9
+  - name: debian-12
+  - name: fedora-latest
+  - name: opensuse-leap-16
+  - name: oraclelinux-8
+  - name: oraclelinux-9
+  - name: rockylinux-8
+  - name: rockylinux-9
+  - name: ubuntu-22.04
+  - name: ubuntu-24.04
+
+x-run_lists:
+  default: &default_run_list
+    - recipe[test::default]
+
+x-verifiers:
+  default: &default_verifier
+    inspec_tests:
+      - path: test/integration/default
 
 suites:
   - name: default
-    run_list: smartmontools::default
+    run_list: *default_run_list
+    verifier: *default_verifier
