@@ -6,14 +6,14 @@ controls the smartd service.
 ## Actions
 
 | Action | Description |
-|--------|-------------|
+| --- | --- |
 | `:create` | Installs and configures smartmontools, then enables and starts the service. Default. |
 | `:delete` | Stops and disables the service, removes managed configuration, and removes the package. |
 
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| --- | --- | --- | --- |
 | `package_name` | String | `'smartmontools'` | Package to install. |
 | `service_name` | String | platform default | Service to manage. Defaults to `smartd` on RHEL-family platforms and `smartmontools` elsewhere. |
 | `default_config_path` | String | platform default | Path for the startup defaults file. Defaults to `/etc/sysconfig/smartmontools` on RHEL-family platforms and `/etc/default/smartmontools` elsewhere. |
