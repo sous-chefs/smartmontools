@@ -3,7 +3,7 @@ maintainer       'Sous Chefs'
 maintainer_email 'help@sous-chefs.org'
 license          'Apache-2.0'
 description      'Provides resources to install and configure smartmontools'
-version          '2.0.9'
+version          '3.0.0'
 
 supports 'almalinux', '>= 8.0'
 supports 'amazon', '>= 2023.0'
