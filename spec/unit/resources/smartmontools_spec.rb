@@ -93,4 +93,17 @@ describe 'smartmontools' do
     it { is_expected.to start_service('smartd') }
     it { is_expected.not_to create_directory('/etc/smartmontools/run.d') }
   end
+
+  context 'on opensuse leap' do
+    platform 'opensuse', '15.2'
+
+    recipe do
+      smartmontools 'default'
+    end
+
+    it { is_expected.to create_template('/etc/sysconfig/smartmontools') }
+    it { is_expected.to enable_service('smartd') }
+    it { is_expected.to start_service('smartd') }
+    it { is_expected.not_to create_directory('/etc/smartmontools/run.d') }
+  end
 end

@@ -23,7 +23,7 @@ maintainers working together to maintain important cookbooks. To learn more, vis
 * CentOS Stream 9+
 * Debian 12+
 * Fedora
-* openSUSE Leap 15+
+* openSUSE Leap 16+
 * Oracle Linux 8+
 * Red Hat Enterprise Linux 8+
 * Rocky Linux 8+

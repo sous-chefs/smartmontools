@@ -15,8 +15,8 @@ controls the smartd service.
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `package_name` | String | `'smartmontools'` | Package to install. |
-| `service_name` | String | platform default | Service to manage. Defaults to `smartd` on RHEL-family platforms and `smartmontools` elsewhere. |
-| `default_config_path` | String | platform default | Path for the startup defaults file. Defaults to `/etc/sysconfig/smartmontools` on RHEL-family platforms and `/etc/default/smartmontools` elsewhere. |
+| `service_name` | String | platform default | Service to manage. Defaults to `smartd` on RHEL-family and SUSE platforms and `smartmontools` elsewhere. |
+| `default_config_path` | String | platform default | Path for the startup defaults file. Defaults to `/etc/sysconfig/smartmontools` on RHEL-family and SUSE platforms and `/etc/default/smartmontools` elsewhere. |
 | `config_path` | String | `'/etc/smartd.conf'` | Path for the smartd configuration file. |
 | `start_smartd` | String, true, false | `'yes'` | Value written to `start_smartd` in the startup defaults file. |
 | `smartd_opts` | String | `''` | Extra options passed to smartd in the startup defaults file. |

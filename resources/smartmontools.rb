@@ -5,14 +5,14 @@ unified_mode true
 
 property :package_name, String, default: 'smartmontools'
 property :service_name, String, default: lazy {
-  if platform_family?('rhel', 'fedora', 'amazon')
+  if platform_family?('rhel', 'fedora', 'amazon', 'suse')
     'smartd'
   else
     'smartmontools'
   end
 }
 property :default_config_path, String, default: lazy {
-  config_dir = if platform_family?('rhel', 'fedora', 'amazon')
+  config_dir = if platform_family?('rhel', 'fedora', 'amazon', 'suse')
                  'sysconfig'
                else
                  'default'

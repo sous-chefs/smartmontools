@@ -23,7 +23,8 @@ smartmontools from source.
 
 ### Zypper (SUSE)
 
-* openSUSE Leap 15: package available from openSUSE repositories.
+* openSUSE Leap 16: package available from openSUSE repositories. Leap 15.6 reached end of life on
+  2026-04-30, so the supported test target is Leap 16.0.
 
 ## Architecture Limitations
 
