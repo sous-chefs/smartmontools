@@ -26,6 +26,9 @@ smartmontools from source.
 * openSUSE Leap 16: package available from openSUSE repositories. Leap 15.6 reached end of life on
   2026-04-30, so the supported test target is Leap 16.0.
 
+The `dokken/opensuse-leap-16` image is not published, so openSUSE Leap 16 remains in metadata and
+non-Dokken Kitchen definitions but is excluded from Dokken CI until an image is available.
+
 ## Architecture Limitations
 
 The upstream project supports common Linux architectures, and distribution package availability
