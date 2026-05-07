@@ -1,0 +1,7 @@
+---
+name: default
+title: smartmontools Default Resource
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verifies the default smartmontools resource workflow
+version: 1.0.0

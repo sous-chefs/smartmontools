@@ -14,9 +14,9 @@
 # You can usually identify which hard disks are on your system by
 # looking in /proc/ide and in /proc/scsi.
 
-<% if node['smartmontools']['devices'].length > 0 -%>
-<%   node['smartmontools']['devices'].each do |device, options| -%>
-<%=    "/dev/#{device} #{options || node['smartmontools']['device_opts']}" %>
+<% if @devices.length > 0 -%>
+<%   @devices.each do |device, options| -%>
+<%=    "/dev/#{device} #{options || @device_opts}" %>
 <%   end -%>
 <% else -%>
 # The word DEVICESCAN will cause any remaining lines in this

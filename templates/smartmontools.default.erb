@@ -10,11 +10,11 @@
 #enable_smart="/dev/hda /dev/hdb"
 
 # uncomment to start smartd on system startup
-start_smartd=<%= node['smartmontools']['start_smartd'] %>
+start_smartd=<%= @start_smartd %>
 
 # uncomment to pass additional options to smartd on startup
-<% if node['smartmontools']['smartd_opts'].length > 0 -%>
-smartd_opts="<%= node['smartmontools']['smartd_opts'] %>"
+<% if @smartd_opts.length > 0 -%>
+smartd_opts="<%= @smartd_opts %>"
 <% else -%>
 #smartd_opts="--interval=1800"
 <% end -%>
